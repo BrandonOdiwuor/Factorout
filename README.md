@@ -5,6 +5,9 @@
 #Author: Vladimir Fomene
 #Email: vladimirfomene@gmail.com
 
+#Author: Brandon Odiwuor
+#Email:brandon.odiwuor@gmail.com
+
 This README would normally document whatever steps are necessary to get the
 application up and running.
 
