@@ -1,0 +1,20 @@
+<div class="panel" >
+  <div class="panel-heading">
+    <h3 class="panel-title">Sign up</h3>
+  </div>
+  <div class="panel-body" >
+    <%= form_for(@user) do |f| %>
+    <%= render 'shared/error_messages', object: f.object %>
+
+      <%= f.text_field :username, :placeholder => "full name", class: 'form-control' %>
+
+      <%= f.email_field :email, :placeholder => "email", class: 'form-control' %>
+
+      <%= f.password_field :password, :placeholder => "password", class: 'form-control' %>
+
+      <%= f.password_field :password_confirmation, :placeholder => "password confirmation", class: 'form-control' %>
+
+      <%= f.submit "Create my account", class: "btn btn-home" %>
+    <% end %>
+  </div>
+</div>

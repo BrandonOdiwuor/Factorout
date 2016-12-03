@@ -1,0 +1,50 @@
+<div class="row">
+<div class="col-md-2">
+</div>
+<div class="col-md-8">
+  <div class="panel panel-success">
+    <div class="panel-heading" style="background-color: #4CAF50;">
+      <h4 style="color: #212121;">
+        <%= @event.title %>
+      </h4>
+    </div>
+    <div class="panel-body">
+      <div class="media">
+        <div class="media-left">
+          <%= link_to gravatar_for(@event.user, size: 50), @event.user %>
+        </div>
+        <div class="media-body">
+          <strong>
+            <%= link_to @event.user.username, @event.user, style: "color: #388E3C;" %>
+          </strong><br/>
+          <p style="color:grey;">
+            Posted <%= time_ago_in_words(@event.created_at) %> ago.
+          </p>
+          <div class="panel-image">
+            
+            <%= image_tag @event.picture.url, class: "event-image img-fluid",
+                          style:"max-width: 100%; height: auto;"if @event.picture? %>
+          </div>
+          <p>
+            <%= @event.description %>
+          </p>
+        </div>
+      </div>
+
+    </div>
+    <div class="panel-footer" style="background-color: #C8E6C9;">
+        <i class="glyphicon glyphicon-user"></i>
+        <%= @event.host %>
+
+        <i class="glyphicon glyphicon-map-marker"></i>
+        <%= @event.location %>
+
+        <i class="glyphicon glyphicon-time"></i>
+        <%= @event.start.strftime("%m-%d-%Y %a %I:%M%p")%>
+    </div>
+  </div>
+</div>
+<div class="col-md-2">
+</div>
+
+</div>

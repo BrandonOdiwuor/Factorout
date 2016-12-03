@@ -1,0 +1,52 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require toastr
+ *= require_self
+ */
+ @import 'https://fonts.googleapis.com/css?family=Rock+Salt';
+
+ #logo_word{
+   padding-top: 5px;
+   padding-bottom: 5px;
+   padding-right: 15px;
+   padding-left: 15px;
+   /*background-color: #006400;*/
+   border-radius: 5px;
+   color: white;
+   /*font-family: 'Rock Salt', cursive;*/
+ }
+
+
+ .background:before {
+  content: "";
+  position: fixed;
+  left: 0;
+  right: 0;
+  z-index: -1;
+
+  display: block;
+  background-image: url("ashesi.jpg");
+  width: 100%;
+  height: 100%;
+
+  -webkit-filter: brightness(0.30);
+  filter: brightness(0.30);
+}
+
+a {
+  position: relative;
+}
+a:active {
+  top: 1px;
+}

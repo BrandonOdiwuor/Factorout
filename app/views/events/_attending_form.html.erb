@@ -1,0 +1,9 @@
+<% unless event.user == current_user %>
+  <span id="attending_form">
+    <% if event.attending?(current_user) %>
+      <%= render 'going' %>
+    <% else %>
+    <%= render 'attend' %>
+    <% end %>
+  </span>
+<% end %>

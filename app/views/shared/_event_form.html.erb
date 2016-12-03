@@ -1,0 +1,26 @@
+<%= simple_form_for(@event, html: { multipart: true }) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+  <%= f.text_field :title, placeholder: "title", class: 'form-control' %>
+  <div class="field">
+    <%= f.text_area :description, placeholder: "What is it about..." %>
+  </div>
+  <%= f.text_field :location, placeholder: "location", class: 'form-control' %>
+  <%= f.text_field :host, placeholder: "Who is the host...", class: 'form-control' %>
+  <%= f.input :start, as: :datetime, input_html: { class: 'datepicker' } %>
+  <%= f.input :end_time, as: :datetime, input_html: { class: 'datepicker' } %>
+
+  <%= f.submit "Post", class: "btn btn-success" %>
+  <span class="picture">
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
+<% end %>
+
+<script type="text/javascript">
+  $('#micropost_picture').bind('change', function() {
+    var size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Maximum file size is 5MB. Please choose a smaller file.');
+    }
+  });
+</script>

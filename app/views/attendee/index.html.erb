@@ -1,0 +1,31 @@
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <%= render 'shared/user_info' %>
+    </section>
+    <% if admin_user? %>
+      <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">New Event</button>
+
+      <!-- Modal -->
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Post a new event</h4>
+            </div>
+            <div class="modal-body">
+              <section class="event_form">
+                <%= render 'shared/event_form' %>
+              </section>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </aside>
+  <div class="col-md-8">
+    <strong><h3>List of Attendees</h3></strong>
+    <%= render 'users/user' %>
+  </div>
+</div>

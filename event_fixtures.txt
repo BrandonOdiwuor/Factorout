@@ -1,0 +1,11 @@
+<% 30.times do |n| %>
+event_<%= n %>:
+  title: <%= Faker::Lorem.sentence %>
+  description: <%= Faker::Lorem.sentence(5) %>
+  location: <%= Faker::Address.city %>
+  host: <%= Faker::Name.name %>
+  start: <%= 2.days.ago %>
+  end_time: <%= Time.zone.now %>
+  created_at: <%= 42.days.ago %>
+  user: vladimir
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<div class="calendar">
+<%= month_calendar events: @even do |date, event| %>
+  <%= date.strftime("%d") %>
+  <% event.each do |ev| %>
+    <div class="text-left" style="color: black; ">
+      <p style="font-size:10px;">
+        <%= link_to "#{ev.start.strftime("%I:%M%p")} : #{ev.title}", event_path(ev.id) %>
+    </p>
+    </div>
+  <% end %>
+<% end %>
+</div>

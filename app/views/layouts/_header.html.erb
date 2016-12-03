@@ -1,0 +1,93 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="<%= root_path %>">
+        <strong>
+          <span id="logo_word">
+          Factorout
+          </span>
+        </strong>
+      </a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <% if logged_in? %>
+          <li><%= link_to "Home", root_url, style: "color:white;" %></li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" style="color: white;" id="notify" data-toggle="dropdown">
+              Notification <span class="badge">3</span>
+            </a>
+            <ul class="dropdown-menu notificationsList list-group" aria-labelledby="dropdownMenu1">
+              <li class="list-group-item">WovenHacks</li>
+              <li class="list-group-item">WovenHacks</li>
+              <li class="list-group-item">WovenHacks</li>
+            </ul>
+          </li>
+          <li>
+            <%= link_to "Calendar", calendar_path, style: "color: white;" %>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" style="color: white;" data-toggle="dropdown">
+              Account <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+              <li><%= link_to "Profile", current_user %></li>
+              <li><%= link_to "Settings", edit_user_path(current_user) %></li>
+              <li class="divider"></li>
+              <li>
+                <%= link_to "Log out", logout_path, method: "delete" %>
+              </li>
+            </ul>
+          </li>
+        <%else%>
+          <li>
+            <button type="button" class="btn btn-default navbar-btn" style="background-color: #4CAF50;"  data-toggle="modal"
+                    data-target="#sign-in-modal">
+              Log In
+            </button>
+          </li>
+        <%end%>
+      </ul>
+
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- Modal -->
+<div class="modal fade" id="sign-in-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header" style="background-color: #4CAF50;">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">Log in to Factorout</h4>
+      </div>
+      <div class="modal-body">
+        <section class="event_form">
+          <%= render 'sessions/pnew' %>
+        </section>
+      </div>
+      <div class="modal-footer">
+        <p class="text-center">New user? <%= link_to "Sign up now!", root_path %></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script type="text/javascript">
+  $("#notify").click(function(){
+      $("#notify span").html("");
+  });
+
+</script>

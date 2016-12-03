@@ -1,0 +1,58 @@
+<div class="panel panel-success">
+  <!-- Heading for an event -->
+  <div class="panel-heading" style="background-color: #4CAF50;">
+    <h4 style="color: #212121;">
+      <%= event.title %>
+    </h4>
+  </div>
+
+  <!-- Body of an evennt -->
+  <div class="panel-body">
+    <div class="media">
+      <div class="media-left">
+        <%= link_to gravatar_for(event.user, size: 50), event.user %>
+      </div>
+      <div class="media-body">
+        <strong>
+          <%= link_to event.user.username, event.user, style: "color: #388E3C;" %>
+        </strong><br/>
+        <%= raw "<p style=\"color:grey;\" class=\"event-" + (event.id).to_s + "\">" %>
+          Posted <%= time_ago_in_words(event.created_at) %> ago.
+          <% if current_user?(event.user) && admin_user? %>
+            <%= link_to "delete", event, style: "color: #388E3C;",
+             method: :delete, data: { confirm: "You sure?" } %>
+            <%= link_to "Attendees", attendees_path(event_id: event.id), style: "color: #388E3C;" %>
+          <% end %>
+          <% unless event.user == current_user %>
+            <span id="attending_form">
+              <% if event.attending?(current_user) %>
+              <%= link_to "Going", "#", style: "color: #388E3C;"  %>
+              <% else %>
+                <%= link_to "Attend", attendees_path(event_id: event.id),
+                style: "color: #388E3C;", method: :post, remote: true %>
+              <% end %>
+            </span>
+          <% end %>
+      </div>
+      <div class="panel-image">
+        <%= image_tag event.picture.url, class: "event-image img-fluid center-block",
+                      style:"max-width: 100%; height: auto;"if event.picture? %>
+      </div>
+      <p>
+        <%= event.description %>
+      </p>
+    </div>
+  </div>
+
+  <!-- Footer of event Footer -->
+  <div class="panel-footer" style="background-color: #C8E6C9;">
+      <i class="glyphicon glyphicon-user"></i>
+      <%= event.host %>
+
+      <i class="glyphicon glyphicon-map-marker"></i>
+      <%= event.location %>
+
+      <i class="glyphicon glyphicon-time"></i>
+      <%= event.start.strftime("%m-%d-%Y %a %I:%M%p")%>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  location: MyString
+  host: MyString
+  start: 2016-03-08 21:30:41
+  end_time: 2016-03-08 21:30:41
+  created_at: <%= 10.minutes.ago %>
+  user: vladimir
+
+two:
+  title: Dalai Lama Orientation
+  description: Here is the orientation for the dalai lama fellowship
+  location: MPH
+  host: Vladimir Fomene
+  start: 2016-03-08 21:30:41
+  end_time: 2016-03-08 21:30:41
+  created_at: <%= 2.hours.ago %>
+  user: vladimir
+
+most_recent:
+  title: Melton Orientation
+  description: Information session with Freshmen on the Melton Foundation.
+  location: MPR
+  host: Melton Fellows
+  start: 2016-03-08 21:30:41
+  end_time: 2016-03-08 21:30:41
+  created_at: <%= Time.zone.now %>
+  user: vladimir
