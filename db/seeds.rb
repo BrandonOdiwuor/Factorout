@@ -16,6 +16,14 @@ User.create!(username:  "vladimirfomene",
              activated: true,
              activated_at: Time.zone.now)
 
+User.create!(username:  "Brandon Wayne Odiwuor",
+             email: "brandon.odiwuor@gmail.com",
+             password:              "foobar",
+             password_confirmation: "foobar",
+             admin: true,
+             activated: true,
+             activated_at: Time.zone.now)
+
 99.times do |n|
   username  = Faker::Name.name
   email = "example-#{n+1}@factorout.com"
